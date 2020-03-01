@@ -22,3 +22,13 @@
     * Detour Crowd AI Controller实现人群避障，并修正了转向不平滑问题
     * EQS与情景查询行人随机生成点、销毁点与大厅休息点
     * 寻路网格导航、黑板、行为树自定义任务控制行人运动
+### CSDN技术分享<br>
+* [【UE4 C++】大规模人群绕行避让的最优解DetourCrowdAIController如何开启](https://blog.csdn.net/qq_31788759/article/details/103253451)<br>
+* [【UE4 AI】AI Move To寻路转向时解决突变、使得平滑过渡的方法（含C++）](https://blog.csdn.net/qq_31788759/article/details/103267162)<br>
+### 行人模拟效果
+![StrangerSimulate](https://github.com/ColorGalaxy/UE4-Campus-Simulation-Demo/raw/master/Screenshot/StrangerSimulate.png)<br>
+### EQS与行为树
+![EQS](https://github.com/ColorGalaxy/UE4-Campus-Simulation-Demo/raw/master/Screenshot/EQS.png)<br>
+![BehaviorTree](https://github.com/ColorGalaxy/UE4-Campus-Simulation-Demo/raw/master/Screenshot/BehaviorTree.png)<br>
+### Git协作记录
+![UploadRecord](https://github.com/ColorGalaxy/UE4-Campus-Simulation-Demo/raw/master/Screenshot/UploadRecord.png)<br>
