@@ -38,29 +38,32 @@ private:
 public:
 	ANpcCharacter();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC")
+		class UNpcDataAsset *NpcAsset;
+
 	/**
-	 * description: ��ʼ��Npc��ģ����λ��
+	 * description: 初始化Npc参数
 	 * @param {}
 	 * @return: void
 	 */
 	void InitNpc();
 
 	/**
-	 * description: ����Npc�Ľṹ����Ϣ
+	 * description: 更新NpcInfo结构体内容
 	 * @param {FNpcInfoRaw _NpcInfo}
 	 * @return: void
 	 */
 	void SetNpcInfo(FNpcInfoRaw _NpcInfo) { this->NpcInfo = _NpcInfo; };
 
 	/**
-	 * description: ��ȡNpc�Ľṹ����Ϣ
+	 * description: 返回NpcInfo结构体内容
 	 * @param {}
 	 * @return: FNpcInfoRaw
 	 */
 	FNpcInfoRaw GetNpcInfo() { return NpcInfo; };
 
 	/**
-	 * description: Npc����һ����ķ�Χ
+	 * description: 检测Npc与主角交互
 	 * @param {UPrimitiveComponent* OverlappedComponent,
 			AActor* OtherActor, UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult}
@@ -72,7 +75,7 @@ public:
 						 int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult);
 
 	/**
-	 * description: ����Npc��Ϣ��.sav
+	 * description: 保存Npc的信息，只需加载一次
 	*/
 	void SaveNpcSlot();
 

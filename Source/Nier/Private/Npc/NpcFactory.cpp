@@ -25,20 +25,20 @@ FString UNpcFactory::GetNpcAssetPath(FName NpcId)
 ANpcCharacter * UNpcFactory::SpawnNpcCharacter(FName NpcId)
 {
 	ANpcCharacter* ProducedNpc = nullptr;
-	UNpcDataAsset* NpcAsset = Cast<UNpcDataAsset>(UNierAssetManager::Get().LoadObjectByStaticPath(GetNpcAssetPath(NpcId)));
-	if (NpcAsset) {
+	UNpcDataAsset* NpcDataAsset = Cast<UNpcDataAsset>(UNierAssetManager::Get().LoadObjectByStaticPath(GetNpcAssetPath(NpcId)));
+	if (NpcDataAsset) {
 		//initialize spawn parameters
-		FVector Location = NpcAsset->NpcInitLocation;
+		FVector Location = NpcDataAsset->NpcInitLocation;
 		FRotator Rotator = FRotator(0.f, 0.f, 0.f);
 		FActorSpawnParameters NpcSpawnParameters;
 		NpcSpawnParameters.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 		
 		//spawn Npc
 		ProducedNpc = GetWorld()->SpawnActor<ANpcCharacter>(ANpcCharacter::StaticClass(), Location, Rotator,NpcSpawnParameters);
-		ProducedNpc->SetNpcInfo(NpcAsset->GetNpcInfo());
+		ProducedNpc->NpcAsset = NpcDataAsset;
 		ProducedNpc->InitNpc();
 
-		UE_LOG(LogTemp, Warning, TEXT("Successed Produce NPC:%s"), *NpcAsset->NpcName.ToString());
+		UE_LOG(LogTemp, Warning, TEXT("Successed Produce NPC:%s"), *NpcDataAsset->NpcName.ToString());
 	}
 	else
 		UE_LOG(LogTemp, Warning, TEXT("Not Find NpcData in %s!"), *(UNpcFactory::DefaultNpcPath));

@@ -40,7 +40,7 @@ public:
 	class UNormalSaveGame* GetCurrentSaveGame();
 	
 	UFUNCTION(BlueprintCallable)
-	bool LoadOrCreateSlot(const FString& SlotName, const int32 PlayerIndex,FOpenLevelDelegate Callback);
+	bool LoadOrCreateSlot(const FString& SlotName, const int32 PlayerIndex, FOpenLevelDelegate Callback);
 
 	UFUNCTION(BlueprintCallable)
 	void SavePlayerAttribute(EPlayerAttributeType AttributeType, int32 Number);

@@ -52,7 +52,8 @@ void UDialogueComponent::InitDialogue()
 
 void UDialogueComponent::SetDialogueInfoFromAsset(FName NpcId)
 {
-	UDialogueDataAsset * DialogueAsset = Cast<UDialogueDataAsset>(UNierAssetManager::Get().LoadObjectByStaticPath(GetDialogueAssetPath(NpcId)));
+	UDialogueDataAsset * DialogueAsset = Cast<UDialogueDataAsset>(UNierAssetManager::Get().
+		LoadObjectByStaticPath(GetDialogueAssetPath(NpcId)));
 	if (DialogueAsset)
 	{
 		//set part parameters
@@ -74,6 +75,9 @@ void UDialogueComponent::UpdateDialogueWaveText(UTask* Task)
 	if (Task->GetState() == ETaskState::NotReceive || Task->GetState() == ETaskState::Received || Task->GetState() == ETaskState::Finished)
 	{//find text from map
 		FString NpcSpokenText = DialogueText.FindRef(Task->GetState());
+		if (NpcSpokenText.IsEmpty())
+			NpcSpokenText = "Hello";
+		
 		NpcDialogueWave->SpokenText = NpcSpokenText;
 		NpcDialogueWave->SubtitleOverride = NpcSpokenText;
 

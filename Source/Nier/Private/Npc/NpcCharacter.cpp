@@ -26,6 +26,7 @@
 //for GetCharacterMovement
 #include "GameFramework/CharacterMovementComponent.h"
 
+#include "NpcDataAsset.h"
 ANpcCharacter::ANpcCharacter()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -89,6 +90,10 @@ void ANpcCharacter::BeginPlay()
 
 void ANpcCharacter::InitNpc()
 {
+	//set info
+	if (NpcAsset != NULL)
+		SetNpcInfo(NpcAsset->GetNpcInfo());
+
 	//set mesh
 	if (NpcInfo.NpcMesh)
 		GetMesh()->SetSkeletalMesh(Cast<USkeletalMesh>(NpcInfo.NpcMesh.Get()));
